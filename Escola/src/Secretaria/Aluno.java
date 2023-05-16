@@ -8,19 +8,26 @@ package Secretaria;
  */
 public class Aluno {
 
-	private String nome, cpf;
+	private String nome;
+	private String cpf;
 	private String responsavel;
 	private String email;
-	private String endereco, telefone;
-	private Matricula matricula;
+	private String endereco;
+	private String telefone;
+	
+	
+	public Aluno(String nome) {
+		super();
+		setNome(nome);
+	}
 
 	/**
-	 * definir a variável nome
+	 * procedimento para validação da variável nome
 	 * 
 	 * @param pnome
 	 */
 	public void setNome(String pnome) {
-		if (pnome.length() >= 4 && pnome.matches("[A-Za-z]*")) {
+		if (pnome.length() > 0 && pnome.matches("[A-Za-z]*")) {
 			nome = pnome;
 
 		} else {
@@ -30,7 +37,7 @@ public class Aluno {
 	}
 
 	/**
-	 * puxar a variável nome
+	 * retorna a variável nome
 	 * 
 	 * @return
 	 */
@@ -39,7 +46,7 @@ public class Aluno {
 	}
 
 	/**
-	 * definir a variável Cpf
+	 * procedimento para validação da variável Cpf
 	 * 
 	 * @param acpf
 	 */
@@ -53,7 +60,7 @@ public class Aluno {
 	}
 
 	/**
-	 * puxar a variável Cpf
+	 * retorna  a variável Cpf
 	 * 
 	 * @return
 	 */
@@ -62,7 +69,7 @@ public class Aluno {
 	}
 
 	/**
-	 * definir a variável responsavel
+	 * procedimento para validação da variável responsavel
 	 * 
 	 * @param aresponsavel
 	 */
@@ -76,7 +83,7 @@ public class Aluno {
 	}
 
 	/**
-	 * puxar a variável responsavel
+	 * retorna a variável responsavel
 	 * 
 	 * @return
 	 */
