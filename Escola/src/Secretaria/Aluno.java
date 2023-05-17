@@ -51,7 +51,7 @@ public class Aluno {
 	 * @param acpf
 	 */
 	public void setCpf(String acpf) {
-		if (acpf.length() == 12 && acpf.matches("[0-9]*")) {
+		if (acpf.length() == 12 && acpf.matches("([0-9]{3}.[0-9]{3}.[0-9]{3}-[0-9]{2})*")) {
 			cpf = acpf;
 
 		} else {
