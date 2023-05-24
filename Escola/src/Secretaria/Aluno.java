@@ -7,121 +7,165 @@ package Secretaria;
  *
  */
 public class Aluno {
-
+	/** Proriedade nome (String) da classe Aluno */
 	private String nome;
+	/** Proriedade cpf (String) da classe Aluno */  
 	private String cpf;
+	/** Proriedade responsavel (String), representando o nome do responsável na classe Aluno */
 	private String responsavel;
+	/** Proriedade email (String) da classe Aluno */
 	private String email;
+	/** Proriedade endereco (String) da classe Aluno */
 	private String endereco;
+	/** Proriedade telefone (String) da classe Aluno */
 	private String telefone;
-	
-	
+
+	/**
+	 * Construtor que inicializa o procedimento setNome para variável nome
+	 * 
+	 * @param nome (String)
+	 */
 	public Aluno(String nome) {
-		super();
 		setNome(nome);
 	}
 
 	/**
-	 * procedimento para validação da variável nome
+	 * Sobrecarga do Construtor
+	 */
+	public Aluno() {
+
+	}
+
+	/**
+	 * Procedimento para validação/alteração da propriedade nome do Aluno
 	 * 
-	 * @param pnome
+	 * @param pnome (String)
 	 */
 	public void setNome(String pnome) {
-		if (pnome.length() > 0 && pnome.matches("[A-Za-z]*")) {
-			nome = pnome;
+		if (pnome.matches("[A-Za-z\\s]+")) {
+			this.nome = pnome;
 
 		} else {
-			System.out.println("Nome inválido");
+			System.out.println("Nome inválido\n");
 
 		}
 	}
 
 	/**
-	 * retorna a variável nome
+	 * Retorna o nome do objeto da classe Aluno
 	 * 
-	 * @return
+	 * @return nome
 	 */
 	public String getNome() {
 		return nome;
 	}
 
 	/**
-	 * procedimento para validação da variável Cpf
+	 * Procedimento para validação da propriedade Cpf do Aluno
 	 * 
-	 * @param acpf
+	 * @param acpf (String)
 	 */
 	public void setCpf(String acpf) {
-		if (acpf.length() == 12 && acpf.matches("([0-9]{3}.[0-9]{3}.[0-9]{3}-[0-9]{2})*")) {
+		if (acpf.matches("([0-9]{3}.[0-9]{3}.[0-9]{3}-[0-9]{2})*")) {
 			cpf = acpf;
 
 		} else {
-			System.out.println("Cpf inválido");
+			System.out.println("Cpf inválido\n");
 		}
 	}
 
 	/**
-	 * retorna  a variável Cpf
+	 *  Retorna o Cpf do objeto da classe Aluno
 	 * 
-	 * @return
+	 * @return cpf
 	 */
 	public String getCpf() {
 		return cpf;
 	}
 
 	/**
-	 * procedimento para validação da variável responsavel
+	 * Procedimento para validação da propriedade do nome do responsavel do Aluno
 	 * 
-	 * @param aresponsavel
+	 * @param aresponsavel (String)
 	 */
 	public void setResponsavel(String aresponsavel) {
-		if (aresponsavel.length() >= 4 && aresponsavel.matches("[A-Za-z]*")) {
+		if (aresponsavel.length() > 0 && aresponsavel.matches("[A-Za-z\\s]+")) {
 			responsavel = aresponsavel;
 
 		} else {
-			System.out.println("Nome de responsável inválido");
+			System.out.println("Nome de responsável inválido\n");
 		}
 	}
 
 	/**
-	 * retorna a variável responsavel
+	 * Retorna o  nome do responsavel do objeto da classe Aluno
 	 * 
-	 * @return
+	 * @return responsavel
 	 */
 	public String getResponsavel() {
 		return responsavel;
 	}
 
+	/** Procedimento para validação da propriedade email do Aluno
+	 * 
+	 * @param aemail (String)
+	 */
 	public void setEmail(String aemail) {
 		if (aemail.matches("([a-z0-9]+[a-z0-9_\\-.]*@[a-z]+[.a-z]*)")) {
 			email = aemail;
 
 		} else {
-			System.out.println("Email inválido");
+			System.out.println("Email inválido\n");
 		}
 	}
 
+	/** Retorna o email do objeto da classe Aluno 
+	 * 
+	 *	@return email 
+	 */
 	public String getEmail() {
 		return email;
 	}
 
+	/** Procedimento para validação da propriedade telefone do Aluno
+	 * 
+	 * @param atelefone (String)
+	 */
 	public void setTelefone(String atelefone) {
 		if (atelefone.matches("(\\([0-9]{2}\\)[0-9]{5}[-]+[0-9]{4})")) {
 			telefone = atelefone;
 
 		} else {
-			System.out.println("Telefone inválido");
+			System.out.println("Telefone inválido\n");
 		}
 	}
 
+	/** Retorna o telefone do objeto da classe Aluno
+	 * 
+	 * @return telefone
+	 */
 	public String getTelefone() {
 		return telefone;
 	}
 
+	/** Procedimento para validação da propriedade endereço do Aluno
+	 * 
+	 * @param aendereco (String)
+	 */
 	public void setEndereco(String aendereco) {
-		endereco = aendereco;
+		if (aendereco.length() > 0) {
+			endereco = aendereco;
+
+		} else {
+			System.out.println("Endereço inválido\n");
+		}
 
 	}
-
+	
+	/** Retorna o endereço do objeto da classe Aluno
+	 * 
+	 * @param aemail (String)
+	 */
 	public String getEndereco() {
 		return endereco;
 	}

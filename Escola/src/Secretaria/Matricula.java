@@ -2,22 +2,45 @@ package Secretaria;
 
 public class Matricula {
 
-	private String matricula;
-	private String turma;
-	private String curso;
-	
-	
-	public void setMatricula(String matriculaa) {
-		if(matriculaa.length() == 10 && matriculaa.matches("[0-9]*")) {
-			matricula = matriculaa;
-			
+	private String codigo;
+	private Aluno aluno;
+	private Curso curso;
+
+	public Matricula(String codigo, Aluno aluno, Curso curso) {
+		setCodigo(codigo);
+		setAluno(aluno);
+		setCurso(curso);
+	}
+
+	public void setCodigo(String codigom) {
+		if (codigom.length() == 6 && codigom.matches("(S{1}[0-9]{5})")) {
+			codigo = codigom;
+
 		} else {
-			System.out.println("Matrícula inválida");
+			System.out.println("Matrícula inválida\n");
 		}
 	}
-	
-	public String getMatricula() {
-		return matricula;
+
+	public String getCodigo() {
+		return codigo;
 	}
-	
+
+	public void setAluno(Aluno aluno) {
+		this.aluno = aluno;
+
+	}
+
+	public Aluno getAluno() {
+		return this.aluno;
+	}
+
+	public void setCurso(Curso curso) {
+		this.curso = curso;
+
+	}
+
+	public Curso getCurso() {
+		return this.curso;
+	}
+
 }
