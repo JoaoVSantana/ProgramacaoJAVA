@@ -7,17 +7,17 @@ package Secretaria;
  *
  */
 public class Aluno {
-	/** Proriedade nome (String) da classe Aluno */
+	/** Propriedade nome (String) da classe Aluno */
 	private String nome;
-	/** Proriedade cpf (String) da classe Aluno */  
+	/** Propriedade cpf (String) da classe Aluno */  
 	private String cpf;
-	/** Proriedade responsavel (String), representando o nome do responsável na classe Aluno */
+	/** Propriedade responsavel (String), representando o nome do responsável na classe Aluno */
 	private String responsavel;
-	/** Proriedade email (String) da classe Aluno */
+	/** Propriedade email (String) da classe Aluno */
 	private String email;
-	/** Proriedade endereco (String) da classe Aluno */
+	/** Propriedade endereco (String) da classe Aluno */
 	private String endereco;
-	/** Proriedade telefone (String) da classe Aluno */
+	/** Propriedade telefone (String) da classe Aluno */
 	private String telefone;
 
 	/**

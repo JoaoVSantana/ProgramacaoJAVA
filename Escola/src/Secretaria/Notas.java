@@ -9,11 +9,11 @@ package Secretaria;
 
 public class Notas {
 
-	/** Proriedade Aluno (Aluno) da classe Notas */
+	/** Propriedade Aluno (Aluno) da classe Notas */
 	private Aluno aluno;
-	/** Proriedade Avaliacao (Avaliacao) da classe Notas */
+	/** Propriedade Avaliacao (Avaliacao) da classe Notas */
 	private Avaliacao avaliacao;
-	/** Proriedade nota (double) da classe Notas */
+	/** Propriedade nota (double) da classe Notas */
 	private double nota;
 
 	/** Construtor da classe Notas

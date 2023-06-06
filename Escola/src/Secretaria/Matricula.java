@@ -1,11 +1,28 @@
 package Secretaria;
 
+/**
+ * Classe para representar a matricula do aluno no sistema
+ * 
+ * @author João Victor Santana
+ *
+ */
+
 public class Matricula {
 
+	/** Propriedade codigo (String) da classe Matricula */
 	private String codigo;
+	/** Propriedade aluno (Aluno) da classe Matricula */
 	private Aluno aluno;
+	/** Propriedade curso (Curso) da classe Matricula */
 	private Curso curso;
 
+	/**
+	 * Construtor da classe Matricula
+	 * 
+	 * @param codigo
+	 * @param aluno
+	 * @param curso
+	 */
 	public Matricula(String codigo, Aluno aluno, Curso curso) {
 		setCodigo(codigo);
 		setAluno(aluno);

@@ -9,9 +9,9 @@ package Secretaria;
 
 public class Avaliacao {
 
-	/** Proriedade nome (String) da classe Avalicoes */
+	/** Propriedade nome (String) da classe Avalicoes */
 	private String nome;
-	/** Proriedade unidadeCur (UnidadesCurriculares) da classe Avaliacoes */
+	/** Propriedade unidadeCur (UnidadesCurriculares) da classe Avaliacoes */
 	private UnidadesCurriculares unidadeCur;
 
 	/**

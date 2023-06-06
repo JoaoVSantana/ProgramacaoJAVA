@@ -9,7 +9,7 @@ package Secretaria;
 
 public class Curso {
 
-	/** Proriedade nome (String) da classe Curso */
+	/** Propriedade nome (String) da classe Curso */
 	private String nome;
 	
 	/**
