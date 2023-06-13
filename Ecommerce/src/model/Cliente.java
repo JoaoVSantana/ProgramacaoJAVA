@@ -18,18 +18,17 @@ public class Cliente {
 	private Pagamento formaPagamento;
 	private Double saldo;
 
-	public Cliente() {
-
-	}
-
-	public void setNome(String cnome) {
-		if (cnome.matches("[A-Za-z]") && cnome.length() > 2) {
+	public Cliente(String cnome) {
+		if (cnome != null && !cnome.isEmpty() && cnome.matches("[a-zA-Z ]+")) {
 			this.nome = cnome;
 
 		} else {
-			System.out.println("Nome inválido\n");
-
+			throw new IllegalArgumentException("Nome inválido.");
 		}
+	}
+
+	public void setNome(String cnome) {
+		this.nome = cnome;
 	}
 
 	public String getNome() {
@@ -41,7 +40,7 @@ public class Cliente {
 			this.cpf = ccpf;
 
 		} else {
-			System.out.println("Cpf inválido\n");
+			throw new IllegalArgumentException("Cpf inválido.");
 		}
 	}
 
@@ -56,9 +55,9 @@ public class Cliente {
 
 		if (calendar.get(Calendar.YEAR) >= 1900 && calendar.get(Calendar.YEAR) < LocalDate.now().getYear()) {
 			this.dataNascimento = cdataNascimento;
-		
+
 		} else {
-			System.out.println("Data de nascimento inválida!");
+			throw new IllegalArgumentException("Data de nascimento inválida!");
 		}
 	}
 
@@ -67,11 +66,11 @@ public class Cliente {
 	}
 
 	public void setEmail(String cemail) {
-		if (cemail.matches("([a-z0-9]+[a-z0-9_\\-.]*@[a-z]+[.a-z]*)")) {
+		if (cemail.matches("([a-z0-9]+[a-z0-9_\\.]*@[a-z]+\\.[a-z]+)")) {
 			this.email = cemail;
 
 		} else {
-			System.out.println("Email inválido\n");
+			throw new IllegalArgumentException("Email inválido\n");
 		}
 
 	}
@@ -80,12 +79,26 @@ public class Cliente {
 		return email;
 	}
 
-	public void setEndereco(Endereco endereco) {
-		this.endereco = endereco;
+	public void setEndereco(Endereco cendereco) {
+		this.endereco = cendereco;
+		
 	}
 
 	public Endereco getEndereco() {
-		return endereco;
+		return this.endereco;
+	}
+	
+	public void setTelefone(String ctelefone) {
+		if (ctelefone.matches("(\\([0-9]{2}\\)[0-9]{5}[-]+[0-9]{4})")) {
+			telefone = ctelefone;
+
+		} else {
+			throw new IllegalArgumentException("Telefone inválido\n");
+		}
+	}
+	
+	public String getTelefone() {
+		return this.telefone;
 	}
 
 }
