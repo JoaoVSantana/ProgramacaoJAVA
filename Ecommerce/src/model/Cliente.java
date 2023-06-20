@@ -1,8 +1,8 @@
 package model;
 
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.time.LocalDate;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 
@@ -17,18 +17,23 @@ public class Cliente {
 	private String senha;
 	private Pagamento formaPagamento;
 	private Double saldo;
+	ArrayList <Carrinho> carrinho = new ArrayList();
 
 	public Cliente(String cnome) {
+		setNome(cnome);
+	}
+
+	public Cliente() {
+
+	}
+
+	public void setNome(String cnome) {
 		if (cnome != null && !cnome.isEmpty() && cnome.matches("[a-zA-Z ]+")) {
 			this.nome = cnome;
 
 		} else {
 			throw new IllegalArgumentException("Nome inválido.");
 		}
-	}
-
-	public void setNome(String cnome) {
-		this.nome = cnome;
 	}
 
 	public String getNome() {
@@ -54,7 +59,11 @@ public class Cliente {
 		calendar.setTime(cdataNascimento);
 
 		if (calendar.get(Calendar.YEAR) >= 1900 && calendar.get(Calendar.YEAR) < LocalDate.now().getYear()) {
-			this.dataNascimento = cdataNascimento;
+			if (calendar.get(Calendar.MONTH) <= 12 && calendar.get(Calendar.MONTH) > 0) {
+				this.dataNascimento = cdataNascimento;
+			} else {
+				throw new IllegalArgumentException("Data de nascimento inválida!");
+			}
 
 		} else {
 			throw new IllegalArgumentException("Data de nascimento inválida!");
@@ -81,13 +90,13 @@ public class Cliente {
 
 	public void setEndereco(Endereco cendereco) {
 		this.endereco = cendereco;
-		
+
 	}
 
 	public Endereco getEndereco() {
 		return this.endereco;
 	}
-	
+
 	public void setTelefone(String ctelefone) {
 		if (ctelefone.matches("(\\([0-9]{2}\\)[0-9]{5}[-]+[0-9]{4})")) {
 			telefone = ctelefone;
@@ -96,9 +105,42 @@ public class Cliente {
 			throw new IllegalArgumentException("Telefone inválido\n");
 		}
 	}
-	
+
 	public String getTelefone() {
 		return this.telefone;
 	}
 
+	public void setSenha(String csenha) {
+		if (csenha.matches("([A-Za-z0-9]+[!@$*&¨?|\\/]*)")) {
+			this.senha = csenha;
+
+		} else {
+			throw new IllegalArgumentException("Caracteres inválidos na senha!");
+		}
+	}
+
+	public String getSenha() {
+		return senha;
+	}
+
+	public void setFormaPagamento(Pagamento formaPagamento) {
+		this.formaPagamento = formaPagamento;
+	}
+
+	public Pagamento getFormaPagamento() {
+		return this.formaPagamento;
+	}
+
+	public void setSaldo(Double saldo) {
+		this.saldo = saldo;
+	}
+	
+	public Double getSaldo() {
+		return saldo;
+	}
+	
+	public void Cadastrar(String cnome, String csenha) {
+		setNome(cnome);
+		setSenha(csenha);
+	}
 }
