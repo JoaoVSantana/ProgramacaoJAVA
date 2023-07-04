@@ -1,6 +1,6 @@
 package model;
 
-import java.util.ArrayList;
+//import java.util.ArrayList;
 import java.time.LocalDate;
 import java.util.Calendar;
 import java.util.Date;
@@ -17,7 +17,7 @@ public class Cliente {
 	private String senha;
 	private Pagamento formaPagamento;
 	private Double saldo;
-	ArrayList <Carrinho> carrinho = new ArrayList();
+//	ArrayList <Carrinho> carrinho = new ArrayList();
 
 	public Cliente(String cnome) {
 		setNome(cnome);

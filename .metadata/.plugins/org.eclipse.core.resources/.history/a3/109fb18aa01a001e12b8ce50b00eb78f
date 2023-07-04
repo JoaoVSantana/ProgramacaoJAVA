@@ -1,0 +1,99 @@
+package model;
+
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+import javax.swing.JButton;
+
+public class TelaCliente extends JFrame {
+
+	private JPanel contentPane;
+	private JTextField textField;
+	private JTextField textField_1;
+	private JTextField textField_2;
+	private JTextField textField_3;
+	private JTextField textField_4;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					TelaCliente frame = new TelaCliente();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public TelaCliente() {
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 450, 300);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		JLabel lbNome = new JLabel("Nome:");
+		lbNome.setBounds(34, 29, 46, 14);
+		contentPane.add(lbNome);
+		
+		JLabel lbCpf = new JLabel("Cpf:");
+		lbCpf.setBounds(34, 65, 46, 14);
+		contentPane.add(lbCpf);
+		
+		JLabel lbNasc = new JLabel("Data Nasc. :");
+		lbNasc.setBounds(34, 102, 69, 14);
+		contentPane.add(lbNasc);
+		
+		JLabel lbTelefone = new JLabel("Telefone:");
+		lbTelefone.setBounds(34, 142, 46, 14);
+		contentPane.add(lbTelefone);
+		
+		JLabel lbEmail = new JLabel("Email:");
+		lbEmail.setBounds(34, 175, 46, 14);
+		contentPane.add(lbEmail);
+		
+		textField = new JTextField();
+		textField.setBounds(198, 26, 138, 20);
+		contentPane.add(textField);
+		textField.setColumns(10);
+		
+		textField_1 = new JTextField();
+		textField_1.setBounds(198, 62, 138, 20);
+		contentPane.add(textField_1);
+		textField_1.setColumns(10);
+		
+		textField_2 = new JTextField();
+		textField_2.setBounds(198, 99, 138, 20);
+		contentPane.add(textField_2);
+		textField_2.setColumns(10);
+		
+		textField_3 = new JTextField();
+		textField_3.setBounds(198, 139, 138, 20);
+		contentPane.add(textField_3);
+		textField_3.setColumns(10);
+		
+		textField_4 = new JTextField();
+		textField_4.setBounds(198, 172, 138, 20);
+		contentPane.add(textField_4);
+		textField_4.setColumns(10);
+		
+		JButton btCadastro = new JButton("Cadastrar");
+		btCadastro.setBounds(335, 227, 89, 23);
+		contentPane.add(btCadastro);
+	}
+
+}
