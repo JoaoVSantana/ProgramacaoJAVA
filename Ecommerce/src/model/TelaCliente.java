@@ -102,11 +102,12 @@ public class TelaCliente extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				
 				Cliente clienteTeste = new Cliente();
-				
+				if()
 				clienteTeste.setNome(txNome.getText());
 				clienteTeste.setCpf(txCpf.getText());
 				clienteTeste.setTelefone(txTelefone.getText());
 				clienteTeste.setEmail(txEmail.getText());
+				
 				
 				JOptionPane.showMessageDialog(null, "Cliente Cadastrado");
 				dispose();
