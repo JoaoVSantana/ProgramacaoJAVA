@@ -1,20 +1,13 @@
 package model;
 
-import java.util.Date;
-import java.text.SimpleDateFormat;
-import java.text.ParseException;
 
 public class Main {
-	 public static void main(String[] args) throws ParseException {
-		 
-		 SimpleDateFormat teste = null;
-		 
-		 SimpleDateFormat fmt = new SimpleDateFormat("dd/MM/yyyy");    
-		 Date data = fmt.parse("10/12/2000"); 
+	 public static void main(String[] args) {
+; 
 
 	        Cliente cliente = new Cliente("Joao");
 	        cliente.setCpf("123.456.789-10");
-	        cliente.setDataNascimento(data);
+	        cliente.setDataNascimento("10/10/2005");
 //	        cliente.setEndereco("Rua Maria Madalena, 123");
 	        cliente.setEmail("joaozinho@gmail.com");
 	        cliente.setSenha("Testing193");

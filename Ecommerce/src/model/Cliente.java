@@ -1,16 +1,12 @@
 package model;
 
 //import java.util.ArrayList;
-import java.time.LocalDate;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.GregorianCalendar;
 
 public class Cliente {
 
 	private String nome;
 	private String cpf;
-	private Date dataNascimento;
+	private String dataNascimento;
 	private String email;
 	private Endereco endereco;
 	private String telefone;
@@ -27,12 +23,13 @@ public class Cliente {
 
 	}
 
-	public void setNome(String cnome) {
+	public int setNome(String cnome) {
 		if (cnome != null && !cnome.isEmpty() && cnome.matches("[a-zA-Z ]+")) {
 			this.nome = cnome;
+			return 1;
 
 		} else {
-			throw new IllegalArgumentException("Nome inválido.");
+			return 2;
 		}
 	}
 
@@ -40,12 +37,13 @@ public class Cliente {
 		return nome;
 	}
 
-	public void setCpf(String ccpf) {
+	public int setCpf(String ccpf) {
 		if (ccpf.matches("([0-9]{3}.[0-9]{3}.[0-9]{3}-[0-9]{2})*")) {
 			this.cpf = ccpf;
+			return 1;
 
 		} else {
-			throw new IllegalArgumentException("Cpf inválido.");
+			return 2;
 		}
 	}
 
@@ -53,33 +51,27 @@ public class Cliente {
 		return cpf;
 	}
 
-	public void setDataNascimento(Date cdataNascimento) {
-		Calendar calendar = new GregorianCalendar();
-
-		calendar.setTime(cdataNascimento);
-
-		if (calendar.get(Calendar.YEAR) >= 1900 && calendar.get(Calendar.YEAR) < LocalDate.now().getYear()) {
-			if (calendar.get(Calendar.MONTH) <= 12 && calendar.get(Calendar.MONTH) > 0) {
-				this.dataNascimento = cdataNascimento;
-			} else {
-				throw new IllegalArgumentException("Data de nascimento inválida!");
-			}
-
+	public int setDataNascimento(String cdataNascimento) {
+		if(cdataNascimento.matches("([0-9/]+)")) {
+			this.dataNascimento = cdataNascimento;
+			return 1;
+			
 		} else {
-			throw new IllegalArgumentException("Data de nascimento inválida!");
+			return 2;
 		}
 	}
 
-	public Date getDataNascimento() {
-		return dataNascimento;
+	public String getDataNascimento() {
+		return this.dataNascimento;
 	}
 
-	public void setEmail(String cemail) {
+	public int setEmail(String cemail) {
 		if (cemail.matches("([a-z0-9]+[a-z0-9_\\.]*@[a-z]+\\.[a-z]+)")) {
 			this.email = cemail;
+			return 1;
 
 		} else {
-			throw new IllegalArgumentException("Email inválido\n");
+			return 2;
 		}
 
 	}
@@ -88,21 +80,22 @@ public class Cliente {
 		return email;
 	}
 
-	public void setEndereco(Endereco cendereco) {
+	public int setEndereco(Endereco cendereco) {
 		this.endereco = cendereco;
-
+		return 1;
 	}
 
 	public Endereco getEndereco() {
 		return this.endereco;
 	}
 
-	public void setTelefone(String ctelefone) {
+	public int setTelefone(String ctelefone) {
 		if (ctelefone.matches("(\\([0-9]{2}\\)[0-9]{5}[-]+[0-9]{4})")) {
 			telefone = ctelefone;
+			return 1;
 
 		} else {
-			throw new IllegalArgumentException("Telefone inválido\n");
+			return 2;
 		}
 	}
 
@@ -110,12 +103,13 @@ public class Cliente {
 		return this.telefone;
 	}
 
-	public void setSenha(String csenha) {
+	public int setSenha(String csenha) {
 		if (csenha.matches("([A-Za-z0-9]+[!@$*&¨?|\\/]*)")) {
 			this.senha = csenha;
+			return 1;
 
 		} else {
-			throw new IllegalArgumentException("Caracteres inválidos na senha!");
+			return 2;
 		}
 	}
 
