@@ -2,32 +2,47 @@ package model;
 
 import java.util.ArrayList;
 
+import Model.Cliente;
+import Model.Produto;
+
 public class Carrinho {
+
+	private Cliente cliente;
+	private float valorTotal;
+	private ArrayList<Produto> produtos = new ArrayList<Produto>();
+	private ArrayList<String> quantidades = new ArrayList<String>();
+
 	
-//	private Cliente cliente;
-	private ArrayList <Produto> produto = new ArrayList<>();
-	private ArrayList <Integer> quantidade = new ArrayList<Integer>();
-	private double valorTotal;
-	
-//	public Carrinho (Cliente cliente) {
-//		setCliente(cliente);
-//	}
-	
-	public Carrinho() {
-		
+	public Carrinho(Cliente cliente) {
+		setCliente(cliente);
 	}
 	
-//	public void setCliente(Cliente cliente) {
-//		this.cliente = cliente;
-//	}
-	
-	public void addCarrinho (Integer cquantidade, Produto cproduto) {
-		produto.add(cproduto);
-		quantidade.add(cquantidade);
+	public Cliente getCliente() {
+		return cliente;
 	}
-	
-	public void removeCarrinho (Integer cquantidade, Produto cproduto) {
-		
+	public void setCliente(Cliente cliente) {
+		this.cliente = cliente;
 	}
 
+	public ArrayList<Produto> getProdutos() {
+		return produtos;
+	}
+	public void setProdutos(Produto produtos) {
+		this.produtos.add(produtos);
+	}
+
+	public ArrayList<String> getQuantidades() {
+		return quantidades;
+	}
+	public void setQuantidades(ArrayList<String> quantidades) {
+		this.quantidades = quantidades;
+	}
+
+	public float getValorTotal() {
+		return valorTotal;
+	}
+	public void setValorTotal(float valorTotal) {
+		this.valorTotal = valorTotal;
+	}
+	
 }
