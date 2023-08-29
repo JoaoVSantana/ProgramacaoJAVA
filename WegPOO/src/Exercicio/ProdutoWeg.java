@@ -1,136 +1,169 @@
 package Exercicio;
 
-/**Classe Pai dos produtos no sistema
+/**
+ * Classe que representa qualquer produto da marca WEG.
+ * Esta é a classe pai para outros produtos específicos.
+ * Contém atributos básicos que são comuns a todos os produtos.
  * 
- * 
- * @author Joao Victor Santana 
+ * @author Joao Victor Santana
  */
-
 public class ProdutoWeg {
 	
 	/**
 	 * Atributos da classe
 	 */
-	private String codigo;
-	private String tipo;
-	private int potencia;
-	private String tensao;
-	private int capacidade;
-	private float preco;
+	private String nome;     // Nome do produto
+	private String codigo;   // Código do produto
+	private String tipo;     // Tipo do produto
+	private int potencia;    // Potência do produto
+	private String tensao;   // Tensão do produto
+	private int capacidade;  // Capacidade do produto
+	private float preco;     // Preço do produto
 	
 	/**
-	 * Construtor padrão da classe
+	 * Construtor padrão da classe.
+	 * 
+	 * @param nome O nome do produto.
+	 * @param codigo O código do produto.
+	 * @param preco O preço do produto.
 	 */
-	public ProdutoWeg() {
-		super();
-		
+	public ProdutoWeg(String nome, String codigo, float preco) {
+		setNome(nome);
+		setCodigo(codigo);
+		setPreco(preco);
 	}
 	
 	/**
-	 * Método para pegar o atributo 'codigo'
+	 * Obtém o nome do produto.
 	 * 
-	 * @return
+	 * @return O nome do produto.
+	 */
+	public String getNome() {
+		return nome;
+	}
+	
+	/**
+	 * Define o nome do produto.
+	 * 
+	 * @param nome O nome do produto.
+	 */
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+	
+	/**
+	 * Obtém o código do produto.
+	 * 
+	 * @return O código do produto.
 	 */
 	public String getCodigo() {
 		return codigo;
 	}
 	
 	/**
-	 * Método para modificar o atributo 'codigo'
+	 * Define o código do produto.
 	 * 
-	 * @param codigo
+	 * @param codigo O código do produto.
 	 */
 	public void setCodigo(String codigo) {
 		this.codigo = codigo;
 	}
 	
 	/**
-	 * Método para pegar o atributo 'tipo'
+	 * Obtém o tipo do produto.
 	 * 
-	 * @return tipo
+	 * @return O tipo do produto.
 	 */
 	public String getTipo() {
 		return tipo;
 	}
 	
 	/**
-	 * Método para modificar o atributo 'tipo'
+	 * Define o tipo do produto.
 	 * 
-	 * @param tipo
+	 * @param tipo O tipo do produto.
 	 */
 	public void setTipo(String tipo) {
 		this.tipo = tipo;
 	}
 	
 	/**
-	 *  Método para pegar o atributo 'potencia'
+	 * Obtém a potência do produto.
 	 * 
-	 * @return potencia
+	 * @return A potência do produto.
 	 */
 	public int getPotencia() {
 		return potencia;
 	}
 	
 	/**
-	 * Método para modificar o atributo 'potencia'
+	 * Define a potência do produto.
 	 * 
-	 * @param potencia
+	 * @param potencia A potência do produto.
 	 */
 	public void setPotencia(int potencia) {
 		this.potencia = potencia;
 	}
 	
 	/**
-	 * Método para pegar o atributo 'tensao'
+	 * Obtém a tensão do produto.
 	 * 
-	 * @return tensao
+	 * @return A tensão do produto.
 	 */
 	public String getTensao() {
 		return tensao;
 	}
 	
 	/**
-	 * Método para modificar o atributo 'tensao'
+	 * Define a tensão do produto.
 	 * 
-	 * @param tensao
+	 * @param tensao A tensão do produto.
 	 */
 	public void setTensao(String tensao) {
 		this.tensao = tensao;
 	}
 	
 	/**
-	 * Método para pegar o atributo 'capacidade'
+	 * Obtém a capacidade do produto.
 	 * 
-	 * @return capacidade
+	 * @return A capacidade do produto.
 	 */
 	public int getCapacidade() {
 		return capacidade;
 	}
 	
 	/**
-	 * Método para modificar o atributo 'capacidade'
+	 * Define a capacidade do produto.
 	 * 
-	 * @param capacidade
+	 * @param capacidade A capacidade do produto.
 	 */
 	public void setCapacidade(int capacidade) {
 		this.capacidade = capacidade;
 	}
 	
 	/**
-	 * Método para pegar o atributo 'preco'
+	 * Obtém o preço do produto.
 	 * 
-	 * @return preco
+	 * @return O preço do produto.
 	 */
 	public float getPreco() {
 		return preco;
 	}
 	
 	/**
-	 * Método para modificar o atributo 'preco'
+	 * Define o preço do produto.
 	 * 
-	 * @param preco
+	 * @param preco O preço do produto.
 	 */
 	public void setPreco(float preco) {
 		this.preco = preco;
+	}
+	
+	/**
+	 * Método vazio para imprimir informações específicas do produto.
+	 * Cada subclasse pode implementar esse método de acordo com sua necessidade.
+	 */
+	public void imprimirInformacoes() {
+		
 	}
 }
