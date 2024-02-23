@@ -11,7 +11,13 @@ public abstract class Midia {
 
     private static final ArrayList<Midia> midias = new ArrayList<>();
 
+    private String nome;
     private int codigo;
+
+    public Midia(String nome, int codigo){
+        this.nome = nome;
+        this.codigo = codigo;
+    }
 
     public boolean isEmprestada() {
         return emprestado;
@@ -55,5 +61,12 @@ public abstract class Midia {
         return null;
     }
 
+    public String getNome() {
+        return nome;
+    }
+
+    public int getCodigo() {
+        return codigo;
+    }
 
 }

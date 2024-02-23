@@ -7,6 +7,7 @@ import java.util.ArrayList;
 
 public abstract class Usuario {
     // Armazenar todos os usuarios do sistema, independente da sua tipagem especíca
+
     private final static ArrayList<Usuario> usuarios = new ArrayList<>();
 
     private String nome;
@@ -51,6 +52,15 @@ public abstract class Usuario {
         return null;
     }
 
+    public static Usuario getUsuario(String usuario){
+        for (Usuario username: usuarios) {
+            if(username.nome.equals(usuario)){
+                return username;
+            }
+        }
+        return null;
+    }
+
     public String consultarMidia(int codigo){
         Midia midia = Midia.procurarMidia(codigo);
         if(midia == null){
@@ -86,4 +96,17 @@ public abstract class Usuario {
     }
 
     protected abstract boolean adicionarEmprestimo(Midia midia);
+
+    public String getEmprestimos() {
+        if(emprestimos == null){
+            return "Não há emprestimos de midias";
+        }else{
+            for (Midia midia: emprestimos) {
+                return "Midia: " + midia.getNome() +"\n" +
+                        "   Código: "+ midia.getCodigo();
+            }
+            return "";
+        }
+    }
 }
+
