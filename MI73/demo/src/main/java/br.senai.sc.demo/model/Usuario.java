@@ -1,11 +1,14 @@
 package br.senai.sc.demo.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Getter;
+import lombok.Setter;
 import lombok.ToString;
 
 //A notação Getter cria um método get() para todos os atributos da classe
 @Getter
+@Setter
 
 //Gera um ToString com todos os atributos (a notação ToString.Exclude faz com que o atributo seja ignorado)
 @ToString
@@ -28,9 +31,12 @@ public class Usuario {
     private String nome;
     @Column(unique = true)
     private String email;
+    @JsonIgnore
     @ToString.Exclude // Faz com que o ToString ignore o atributo senha e não printe ele
     @Column(name = "password")
     private String senha;
     @Column(length = 50)
     private String nomePet;
+
+
 }
