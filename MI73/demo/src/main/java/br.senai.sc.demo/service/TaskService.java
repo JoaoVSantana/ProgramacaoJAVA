@@ -17,7 +17,7 @@ public class TaskService {
 
     public Task criarTask(TaskRequestPostDTO taskRequest) {
         Task task = new Task();
-        task.setTitulo(taskRequest.getTitulo());
+        task.setTitulo(taskRequest.titulo());
         return taskRepository.save(task);
     }
     public Task buscarTaskPorId(Integer id) {

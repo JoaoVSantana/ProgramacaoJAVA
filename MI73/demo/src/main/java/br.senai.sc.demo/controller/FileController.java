@@ -1,18 +1,19 @@
 package br.senai.sc.demo.controller;
 
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import br.senai.sc.demo.service.FileServiceImpl;
+import lombok.AllArgsConstructor;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 @RestController
+@AllArgsConstructor
 @RequestMapping("/aws")
 public class FileController {
 
+    private FileServiceImpl fileService;
+
     @PostMapping("/{id}")
-    public void PostAws(@PathVariable Integer id){
-
+    public boolean PostAws(@PathVariable Long id, @RequestBody MultipartFile file){
+        return fileService.criar(id, file);
     }
-
-
 }

@@ -14,12 +14,12 @@ public class TaskController {
     private TaskService taskService;
 
     @PostMapping
-    public Task PostTask(@RequestBody TaskRequestPostDTO taskRequest){
+    public Task criarTask(@RequestBody TaskRequestPostDTO taskRequest){
         return taskService.criarTask(taskRequest);
     }
 
     @GetMapping("/{id}")
-    public Task GetTask(@PathVariable Integer id){
+    public Task buscarTask(@PathVariable Integer id){
         return taskService.buscarTaskPorId(id);
     }
 

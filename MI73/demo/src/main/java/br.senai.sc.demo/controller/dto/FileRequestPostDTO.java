@@ -4,8 +4,10 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
-public class FileRequestPostDTO {
+public record FileRequestPostDTO(
+        Long taskId,
+        MultipartFile file
+) {
 
-    private Integer taskId;
-    private List<MultipartFile> files;
+
 }

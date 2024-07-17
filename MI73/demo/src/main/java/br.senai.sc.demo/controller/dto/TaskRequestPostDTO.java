@@ -4,9 +4,7 @@ import jakarta.persistence.Id;
 import lombok.Getter;
 import lombok.Setter;
 
-@Getter
-@Setter
-public class TaskRequestPostDTO {
 
-    private String titulo;
+public record TaskRequestPostDTO(
+        String titulo){
 }
