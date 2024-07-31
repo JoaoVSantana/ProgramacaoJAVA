@@ -8,5 +8,7 @@ public interface FileServiceInt {
 
     boolean criar(Long id, MultipartFile file);
 
+    String buscarFile(Integer id);
+
 
 }
