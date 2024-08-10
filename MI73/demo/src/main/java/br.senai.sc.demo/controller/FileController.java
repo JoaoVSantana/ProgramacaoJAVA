@@ -9,6 +9,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 @RestController
 @AllArgsConstructor
+@CrossOrigin("*")
 @RequestMapping("/aws")
 public class FileController {
 

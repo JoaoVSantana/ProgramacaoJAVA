@@ -7,6 +7,7 @@ import br.senai.sc.demo.repository.TaskRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -25,5 +26,9 @@ public class TaskService {
         Task task = optional.get();
         return task;
 
+    }
+
+    public List<Task> buscarTodasTasks(){
+        return taskRepository.findAll();
     }
 }
