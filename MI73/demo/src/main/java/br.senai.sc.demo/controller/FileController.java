@@ -7,6 +7,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.util.List;
+
 @RestController
 @AllArgsConstructor
 @CrossOrigin("*")
@@ -24,5 +26,11 @@ public class FileController {
     public ResponseEntity<String> GetAws(@PathVariable Integer id){
         String fileUrl = fileService.buscarFile(id);
         return ResponseEntity.ok(fileUrl);
+    }
+
+    @GetMapping("/imagens/{id}")
+    public ResponseEntity<List<String>> buscarImagens(@PathVariable Long id){
+        List<String>urls = fileService.buscarImagens(id);
+        return new ResponseEntity<>(urls, HttpStatusCode.valueOf(200));
     }
 }

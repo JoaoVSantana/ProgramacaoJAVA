@@ -23,9 +23,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.util.Date;
-import java.util.Optional;
-import java.util.UUID;
+import java.util.*;
 
 @Service
 public class FileServiceImpl implements FileServiceInt {
@@ -116,5 +114,47 @@ public class FileServiceImpl implements FileServiceInt {
             System.out.println(e.getMessage());
             return e.getMessage();
         }
+    }
+
+    @Override
+    public List<String> buscarImagens(Long id) {
+        List<String> urls = new ArrayList<>();
+        try {
+            List<File> files = fileRepository.findAllByTask_Id(id);
+
+            if (files.isEmpty()) {
+                return urls;
+            }
+
+            AWSCredentials awsCredentials = new BasicAWSCredentials(awsKeyId, awsKeySecret);
+
+            AmazonS3 client = AmazonS3ClientBuilder.standard().withCredentials(
+                            new AWSStaticCredentialsProvider(awsCredentials))
+                    .withRegion(Regions.US_EAST_1).build();
+
+            boolean bucketExist = client.doesBucketExistV2(bucketName);
+
+            if (!bucketExist) {
+                System.out.println("Bucket não existe");
+            } else {
+                System.out.println("Bucket existe");
+            }
+
+            for (File file : files) {
+                GeneratePresignedUrlRequest presigned =
+                        new GeneratePresignedUrlRequest(bucketName, file.getUrl());
+                presigned.setExpiration(new Date(System.currentTimeMillis() + 600000));
+
+                String url = client.generatePresignedUrl(presigned).toString();
+                urls.add(url);
+            }
+
+        } catch (AmazonS3Exception e) {
+            System.out.println(e.getMessage());
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+
+        return urls;
     }
 }
