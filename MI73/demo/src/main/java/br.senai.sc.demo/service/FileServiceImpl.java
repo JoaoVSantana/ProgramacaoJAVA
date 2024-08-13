@@ -93,14 +93,6 @@ public class FileServiceImpl implements FileServiceInt {
                             new AWSStaticCredentialsProvider(awsCredentials))
                     .withRegion(Regions.US_EAST_1).build();
 
-            boolean bucketExist = client.doesBucketExistV2(bucketName);
-
-            if (!bucketExist){
-                System.out.println("Não existe");
-            } else {
-                System.out.println("existe");
-            }
-             Task task = new Task();
 
             GeneratePresignedUrlRequest presigned =
                     new GeneratePresignedUrlRequest(bucketName, file.getUrl());
@@ -131,14 +123,6 @@ public class FileServiceImpl implements FileServiceInt {
             AmazonS3 client = AmazonS3ClientBuilder.standard().withCredentials(
                             new AWSStaticCredentialsProvider(awsCredentials))
                     .withRegion(Regions.US_EAST_1).build();
-
-            boolean bucketExist = client.doesBucketExistV2(bucketName);
-
-            if (!bucketExist) {
-                System.out.println("Bucket não existe");
-            } else {
-                System.out.println("Bucket existe");
-            }
 
             for (File file : files) {
                 GeneratePresignedUrlRequest presigned =

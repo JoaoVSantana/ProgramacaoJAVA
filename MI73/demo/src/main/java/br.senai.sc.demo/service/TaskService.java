@@ -12,22 +12,24 @@ import java.util.Optional;
 
 @Service
 @AllArgsConstructor
-public class TaskService {
+public class TaskService implements TaskServiceInt{
 
     public TaskRepository taskRepository;
 
+    @Override
     public Task criarTask(TaskRequestPostDTO taskRequest) {
         Task task = new Task();
         task.setTitulo(taskRequest.titulo());
         return taskRepository.save(task);
     }
+    @Override
     public Task buscarTaskPorId(Integer id) {
         Optional<Task> optional =  taskRepository.findById(id);
         Task task = optional.get();
         return task;
 
     }
-
+    @Override
     public List<Task> buscarTodasTasks(){
         return taskRepository.findAll();
     }
