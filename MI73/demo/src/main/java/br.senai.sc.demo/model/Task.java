@@ -1,5 +1,6 @@
 package br.senai.sc.demo.model;
 
+import br.senai.sc.demo.controller.dto.TaskGetDTO;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -7,6 +8,7 @@ import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Data
 @Entity
@@ -22,4 +24,9 @@ public class Task {
     private List<File> file;
 
     private String titulo;
+
+    public TaskGetDTO toGetDTO(){
+        List<String> imagens = this.file.stream().map(File::getUrl).toList();
+        return new TaskGetDTO(this.id, this.titulo, imagens);
+    }
 }

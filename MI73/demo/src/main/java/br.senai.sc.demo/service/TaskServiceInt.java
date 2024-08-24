@@ -1,5 +1,6 @@
 package br.senai.sc.demo.service;
 
+import br.senai.sc.demo.controller.dto.TaskGetDTO;
 import br.senai.sc.demo.controller.dto.TaskRequestPostDTO;
 import br.senai.sc.demo.model.Task;
 
@@ -11,7 +12,7 @@ public interface TaskServiceInt {
 
     public Task buscarTaskPorId(Integer id);
 
-    public List<Task> buscarTodasTasks();
+    public List<TaskGetDTO> buscarTodasTasks();
 }
 
 

@@ -1,5 +1,6 @@
 package br.senai.sc.demo.controller;
 
+import br.senai.sc.demo.controller.dto.TaskGetDTO;
 import br.senai.sc.demo.controller.dto.TaskRequestPostDTO;
 import br.senai.sc.demo.model.Task;
 import br.senai.sc.demo.service.TaskService;
@@ -17,6 +18,7 @@ import java.util.List;
 @CrossOrigin("*")
 @RequestMapping("/task")
 public class TaskController {
+
     private TaskService taskService;
 
     @PostMapping
@@ -30,7 +32,7 @@ public class TaskController {
     }
 
     @GetMapping
-    public ResponseEntity<List<Task>> buscarTodasTasks(){
+    public ResponseEntity<List<TaskGetDTO>> buscarTodasTasks(){
         return new ResponseEntity<>(taskService.buscarTodasTasks(), HttpStatusCode.valueOf(200));
     }
 

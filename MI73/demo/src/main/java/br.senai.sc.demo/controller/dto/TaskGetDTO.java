@@ -1,4 +1,10 @@
 package br.senai.sc.demo.controller.dto;
 
-public class TaskGetDTO {
+import java.util.List;
+
+public record TaskGetDTO(
+        Long id,
+        String titulo,
+        List<String> imagens
+) {
 }

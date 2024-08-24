@@ -1,5 +1,6 @@
 package br.senai.sc.demo.service;
 
+import br.senai.sc.demo.controller.dto.TaskGetDTO;
 import br.senai.sc.demo.controller.dto.TaskRequestPostDTO;
 import br.senai.sc.demo.model.Task;
 import br.senai.sc.demo.model.Usuario;
@@ -7,6 +8,7 @@ import br.senai.sc.demo.repository.TaskRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -30,7 +32,12 @@ public class TaskService implements TaskServiceInt{
 
     }
     @Override
-    public List<Task> buscarTodasTasks(){
-        return taskRepository.findAll();
+    public List<TaskGetDTO> buscarTodasTasks(){
+        List<Task> tasks = taskRepository.findAll();
+        List<TaskGetDTO> dtoList = new ArrayList<>();
+        for (Task task : tasks) {
+            dtoList.add(task.toGetDTO());
+        }
+        return dtoList;
     }
 }
