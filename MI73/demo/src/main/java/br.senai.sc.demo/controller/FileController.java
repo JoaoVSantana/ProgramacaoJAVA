@@ -18,12 +18,12 @@ public class FileController {
     private FileServiceImpl fileService;
 
     @PostMapping("/{id}")
-    public ResponseEntity<Boolean> PostAws(@PathVariable Long id, @RequestBody MultipartFile file){
+    public ResponseEntity<Boolean> postAws(@PathVariable Long id, @ModelAttribute MultipartFile file){
         return new ResponseEntity<>(fileService.criar(id, file), HttpStatusCode.valueOf(200));
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<String> GetAws(@PathVariable Integer id){
+    public ResponseEntity<String> getAws(@PathVariable Integer id){
         String fileUrl = fileService.buscarFile(id);
         return ResponseEntity.ok(fileUrl);
     }
