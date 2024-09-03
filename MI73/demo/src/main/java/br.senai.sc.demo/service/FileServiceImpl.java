@@ -19,15 +19,20 @@ import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.kafka.annotation.KafkaListener;
+import org.springframework.kafka.core.KafkaTemplate;
+import org.springframework.kafka.support.SendResult;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.*;
+import java.util.concurrent.CompletableFuture;
 
 @Service
 public class FileServiceImpl implements FileServiceInt {
     @Autowired
     private FileRepository fileRepository;
+    private ProducerService producerService;
 
     @Value("${aws.access.key}")
     private String awsKeyId;
@@ -35,7 +40,6 @@ public class FileServiceImpl implements FileServiceInt {
     private String awsKeySecret;
     @Value("${aws.bucket.name}")
     private String bucketName;
-
 
     @Override
     public boolean criar(Long id, MultipartFile file) {
@@ -65,6 +69,7 @@ public class FileServiceImpl implements FileServiceInt {
             objectMetadata.setContentLength(file.getSize());
             client.putObject(bucketName, urlAws, file.getInputStream(), objectMetadata);
 
+            producerService.sendMessage("Arquivo " + novoFile.getId() + " criado com sucesso");
             return true;
 
         } catch (AmazonS3Exception e){
