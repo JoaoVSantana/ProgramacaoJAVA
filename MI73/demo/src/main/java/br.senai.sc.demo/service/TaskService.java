@@ -48,6 +48,7 @@ public class TaskService implements TaskServiceInt{
         for (Task task : tasks) {
             dtoList.add(task.toGetDTO());
         }
+        producerService.sendMessage("Todas as tasks encontradas");
         return dtoList;
     }
 }

@@ -32,6 +32,7 @@ import java.util.concurrent.CompletableFuture;
 public class FileServiceImpl implements FileServiceInt {
     @Autowired
     private FileRepository fileRepository;
+    @Autowired
     private ProducerService producerService;
 
     @Value("${aws.access.key}")
