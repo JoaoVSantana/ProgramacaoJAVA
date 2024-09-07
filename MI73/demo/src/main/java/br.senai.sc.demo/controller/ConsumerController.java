@@ -20,7 +20,7 @@ public class ConsumerController {
     private ConsumerService consumerService;
     @GetMapping("/messages")
     public ResponseEntity<List<String>> getMessages() {
-        List<String> mensagens = consumerService.getMessages();
+        List<String> mensagens = consumerService.getUnreadMessages();
         return ResponseEntity.ok(mensagens);
     }
 }

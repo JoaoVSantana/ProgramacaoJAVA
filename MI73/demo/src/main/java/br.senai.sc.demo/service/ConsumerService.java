@@ -1,5 +1,6 @@
 package br.senai.sc.demo.service;
 
+import org.apache.kafka.clients.consumer.KafkaConsumer;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Service;
 
@@ -19,9 +20,11 @@ public class ConsumerService {
         System.out.println("Mensagem recebida: " + message);
     }
 
-    public List<String> getMessages() {
+    public List<String> getUnreadMessages() {
         synchronized (mensagens) {
-            return new ArrayList<>(mensagens);
+            List<String> unread = new ArrayList<>(mensagens);
+            mensagens.clear();
+            return unread;
         }
     }
 }
